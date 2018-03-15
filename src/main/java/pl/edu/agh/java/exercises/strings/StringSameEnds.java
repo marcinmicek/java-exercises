@@ -10,7 +10,25 @@ package pl.edu.agh.java.exercises.strings;
  * @see http://codingbat.com/prob/p131516
  */
 public class StringSameEnds {
-    public String sameEnds(String string) {
-        throw new UnsupportedOperationException();
+    public String sameEnds(String string) throws UnsupportedOperationException {
+		if (string.contains("\n") || string.contains(" ")) {  // czy potrzebny drugi warunek?
+			
+			throw new UnsupportedOperationException("Invalid operation for string.");
+			
+		} else {
+			
+			String output = "";
+			int maxIndex = (string.length() / 2) + 1;
+			
+	        for (int i = 1; i < maxIndex; i++) {
+	        	String twin = string.substring(0, i);
+	        	if ( string.startsWith(twin) && string.endsWith(twin) ) {
+	        		output = twin;
+	        	}
+	        }
+	        
+	        System.out.println("Najdluzszy podciag = " + output);
+	        return output;
+		}
     }
 }
